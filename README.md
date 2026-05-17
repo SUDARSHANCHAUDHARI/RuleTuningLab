@@ -11,13 +11,27 @@
 - alert severity tuning
 - before/after report
 
-## Status
+## Quick Start
 
-Scaffolded. Implementation pending.
+```bash
+python3 -m src.evaluator
+python3 -m unittest discover -s tests -p 'test_*.py'
+```
+
+The sample logs are safe synthetic labeled events.
+
+## MVP Capabilities
+
+- Loads detection rules from YAML-like files
+- Runs rules against labeled sample logs
+- Counts true positives and false positives
+- Calculates false positive rate
+- Suggests tuning actions for noisy rules
+- Writes Markdown and JSON reports
 
 ## Repository Status
 
-This repository contains the production-ready foundation for the Rule Tuning Lab MVP. The current codebase is scaffolded and ready for focused implementation work.
+This repository contains a working Rule Tuning Lab MVP with safe labeled logs, evaluation metrics, tuning suggestions, generated reports, and tests.
 
 ## Production Foundation
 
@@ -29,4 +43,3 @@ This repository contains the production-ready foundation for the Rule Tuning Lab
 - Pull request and issue templates
 - Production readiness checklist
 - Safe ignore rules for local secrets and generated files
-

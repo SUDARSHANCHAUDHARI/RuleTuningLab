@@ -1,2 +1,7 @@
 # Web Attack for Rule Tuning
-items: []
+items:
+  - id: web-attack
+    description: Web request contains common injection marker
+    severity: high
+    contains:
+      - "union select"

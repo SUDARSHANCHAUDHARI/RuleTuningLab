@@ -1,0 +1,6 @@
+# Safe synthetic labeled logs
+expected=true sshd Failed password for invalid user admin from 198.51.100.10
+expected=false sshd Failed password for user deploy from 10.0.0.10
+expected=false firewall healthcheck ports=443
+expected=true firewall scan src=198.51.100.20 ports=22,80,443,8080
+expected=true nginx GET /search?q=1 UNION SELECT username FROM users

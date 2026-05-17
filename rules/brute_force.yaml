@@ -1,2 +1,7 @@
 # Brute Force for Rule Tuning
-items: []
+items:
+  - id: brute-force
+    description: SSH failed login pattern
+    severity: medium
+    contains:
+      - "failed password"

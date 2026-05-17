@@ -1,0 +1,23 @@
+[
+  {
+    "rule_id": "brute-force",
+    "alerts": 3,
+    "true_positives": 2,
+    "false_positives": 1,
+    "false_positive_rate": 0.333
+  },
+  {
+    "rule_id": "port-scan",
+    "alerts": 3,
+    "true_positives": 2,
+    "false_positives": 1,
+    "false_positive_rate": 0.333
+  },
+  {
+    "rule_id": "web-attack",
+    "alerts": 2,
+    "true_positives": 2,
+    "false_positives": 0,
+    "false_positive_rate": 0.0
+  }
+]

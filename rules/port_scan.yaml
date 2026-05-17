@@ -1,2 +1,7 @@
 # Port Scan for Rule Tuning
-items: []
+items:
+  - id: port-scan
+    description: Many ports touched by one source
+    severity: medium
+    contains:
+      - "ports="
