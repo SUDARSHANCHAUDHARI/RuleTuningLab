@@ -39,13 +39,30 @@ The sample logs are safe synthetic labeled events.
 - Runs rules against labeled sample logs
 - Counts true positives and false positives
 - Calculates false positive rate
+- Calculates precision and a noise grade per rule
 - Suggests tuning actions for noisy rules
-- Writes Markdown and JSON reports
+- Writes evaluation JSON, summary JSON, tuning plan JSON, Markdown report, and triage handoff
+
+## Demo Artifacts
+
+- [Architecture](docs/ARCHITECTURE.md)
+- [Security notes](docs/SECURITY_NOTES.md)
+- [Demo walkthrough](docs/DEMO.md)
+- [Release notes](docs/RELEASE_NOTES.md)
+- [Sample tuning report](reports/tuning-report.md)
+- [Sample triage report](reports/triage.md)
+- [Sample tuning plan](reports/tuning-plan.json)
+
+## Docker Demo
+
+```bash
+docker compose run --rm rule-tuning-demo
+```
 
 ## Roadmap
 
-- Polish sample output screenshots or terminal demos
-- Add architecture diagram and deeper implementation notes
-- Expand test coverage around edge cases
-- Add Docker or local demo workflow where useful
-- Prepare `v0.1.0-mvp` release notes
+- Add before/after simulation using proposed rule changes.
+- Add suppression and allowlist condition examples.
+- Add severity downgrade impact analysis.
+- Add dashboard charts for noisy rules.
+- Prepare GitHub release `v0.1.0-mvp`.

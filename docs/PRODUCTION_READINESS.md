@@ -2,17 +2,16 @@
 
 ## Current Status
 
-This repository has production foundation files and an MVP scaffold. The product implementation is not production complete yet.
+This repository has a working local MVP with deterministic rule evaluation, safe labeled sample logs, generated reports, and tests. It is not production complete yet.
 
 ## Required Before Public Release
 
-- Implement the primary MVP workflow.
-- Add automated tests for core detection logic.
-- Validate all untrusted inputs.
+- Add a real YAML parser before accepting broader rule syntax.
+- Validate labeled log schema and reject unknown labels.
 - Add structured logging without leaking secrets.
-- Document local setup and deployment.
-- Review all sample data for sensitive content.
-- Add authentication and authorization where user data or device data is handled.
+- Add before/after tuning simulation and rule-change audit history.
+- Add authentication and authorization before storing multi-user logs.
+- Add retention controls for uploaded logs and generated reports.
 - Run dependency and secret scans before release.
 
 ## Definition of Done

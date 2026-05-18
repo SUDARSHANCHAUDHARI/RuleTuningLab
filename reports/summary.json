@@ -1,0 +1,12 @@
+{
+  "rules_with_alerts": 3,
+  "total_alerts": 8,
+  "total_true_positives": 6,
+  "total_false_positives": 2,
+  "overall_false_positive_rate": 0.25,
+  "suggestions": 2,
+  "noisy_rules": [
+    "brute-force",
+    "port-scan"
+  ]
+}

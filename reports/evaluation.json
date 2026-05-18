@@ -4,20 +4,36 @@
     "alerts": 3,
     "true_positives": 2,
     "false_positives": 1,
-    "false_positive_rate": 0.333
+    "false_positive_rate": 0.333,
+    "precision": 0.667,
+    "noise_grade": "needs-tuning",
+    "severity_recommendation": "add-allowlist-context",
+    "false_positive_examples": [
+      "expected=false sshd Failed password for user deploy from 10.0.0.10"
+    ]
   },
   {
     "rule_id": "port-scan",
     "alerts": 3,
     "true_positives": 2,
     "false_positives": 1,
-    "false_positive_rate": 0.333
+    "false_positive_rate": 0.333,
+    "precision": 0.667,
+    "noise_grade": "needs-tuning",
+    "severity_recommendation": "add-allowlist-context",
+    "false_positive_examples": [
+      "expected=false firewall healthcheck ports=443"
+    ]
   },
   {
     "rule_id": "web-attack",
     "alerts": 2,
     "true_positives": 2,
     "false_positives": 0,
-    "false_positive_rate": 0.0
+    "false_positive_rate": 0.0,
+    "precision": 1.0,
+    "noise_grade": "clean",
+    "severity_recommendation": "keep",
+    "false_positive_examples": []
   }
 ]

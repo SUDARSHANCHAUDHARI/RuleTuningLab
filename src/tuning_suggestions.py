@@ -19,10 +19,16 @@ def build_suggestions(evaluations) -> list[Suggestion]:
             suggestions.append(
                 Suggestion(
                     item.rule_id,
-                    "Add a second condition or lower severity until context confirms the behavior.",
+                    "Add a second condition, require stronger context, or lower severity until the behavior is confirmed.",
                     "high",
                 )
             )
         elif item.false_positives:
-            suggestions.append(Suggestion(item.rule_id, "Review sample false positives and add an allow-list condition.", "medium"))
+            suggestions.append(
+                Suggestion(
+                    item.rule_id,
+                    "Review sample false positives and add an allow-list or environment context condition.",
+                    "medium",
+                )
+            )
     return suggestions

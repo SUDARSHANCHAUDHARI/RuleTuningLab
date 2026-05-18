@@ -1,0 +1,26 @@
+[
+  {
+    "rule_id": "brute-force",
+    "noise_grade": "needs-tuning",
+    "false_positive_rate": 0.333,
+    "precision": 0.667,
+    "severity_recommendation": "add-allowlist-context",
+    "action": "Review sample false positives and add an allow-list or environment context condition."
+  },
+  {
+    "rule_id": "port-scan",
+    "noise_grade": "needs-tuning",
+    "false_positive_rate": 0.333,
+    "precision": 0.667,
+    "severity_recommendation": "add-allowlist-context",
+    "action": "Review sample false positives and add an allow-list or environment context condition."
+  },
+  {
+    "rule_id": "web-attack",
+    "noise_grade": "clean",
+    "false_positive_rate": 0.0,
+    "precision": 1.0,
+    "severity_recommendation": "keep",
+    "action": "No tuning needed."
+  }
+]
