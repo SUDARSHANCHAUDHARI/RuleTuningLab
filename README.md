@@ -1,70 +1,87 @@
 # Rule Tuning Lab
 
-[![Python](https://img.shields.io/badge/Python-3.12-blue)](#) [![Status](https://img.shields.io/badge/status-MVP-green)](#) [![Security](https://img.shields.io/badge/security-defensive%20lab-purple)](#)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue)](#requirements)
+[![Status](https://img.shields.io/badge/status-MVP-green)](#status)
+[![Security](https://img.shields.io/badge/security-defensive%20lab-purple)](#safe-use)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Detection tuning lab that measures false positives and suggests rule improvements from labeled logs.
+Detection tuning lab. Measures false-positive rate, precision, and noise grade per detection rule, then suggests tuning improvements based on labeled log samples.
 
-- **Portfolio group:** Cybersecurity lab project
-- **Status:** MVP implemented, tested, committed, and pushed to GitHub
-- **GitHub:** https://github.com/SUDARSHANCHAUDHARI/RuleTuningLab
-- **Local path:** `/Users/screencloudsudarshan/SUDARSHAN_CODE/sudarshan_repos/CyberSecurity/RuleTuningLab`
+---
 
-## MVP Snapshot
+## Overview
 
-This repository includes a working MVP with safe sample data, deterministic detection or analysis logic, local tests, and generated output reports where relevant. It is ready for README/demo polish or deeper product work.
+Rule Tuning Lab is a defensive analysis tool for detection engineers. You provide YAML rule definitions plus labeled log samples (noisy + clean), and the tool evaluates each rule's precision, false-positive rate, and noise grade. It then suggests concrete tuning improvements (narrower regex, time-window adjustments, suppression filters) prioritized by impact.
 
-## Safe Use
+## Features
 
-This project is defensive and analysis-focused. Use only with logs, systems, repositories, and lab environments you own or have permission to assess.
+- Loads YAML detection rules
+- Evaluates rules against labeled log samples
+- Calculates precision, false-positive rate, and noise grade per rule
+- Generates tuning suggestions ranked by impact
+- Outputs tuning plan, summary, Markdown report, and triage handoff
 
-## Core Features
+## Requirements
 
-- rule test runner
-- false positive counter
-- alert severity tuning
-- before/after report
+- Python 3.10 or newer
+- Linux, macOS, or Windows
+- No third-party Python packages (standard library only)
+- Optional: Docker for the demo container
 
-
-## Install
+## Installation
 
 ```bash
+git clone https://github.com/SUDARSHANCHAUDHARI/RuleTuningLab.git
+cd RuleTuningLab
 pip install .
 ```
 
-This registers the `rule-tuning-lab` command. Or run directly:
+This registers the `rule-tuning-lab` CLI command.
+
+To run without installing:
 
 ```bash
 python3 main.py --help
 ```
 
-## Quick Start
+## Usage
+
+Evaluate the included rules against the labeled samples:
 
 ```bash
-python3 -m src.evaluator
-python3 -m unittest discover -s tests -p 'test_*.py'
+python3 main.py --rules rules/*.yaml --logs data/noisy-alerts.log data/clean-alerts.log
 ```
 
-The sample logs are safe synthetic labeled events.
+Generated outputs in `reports/`:
 
-## MVP Capabilities
+- `evaluations.json` — per-rule precision, FPR, noise grade
+- `suggestions.json` — ranked tuning suggestions
+- `tuning-plan.json` — actionable tuning plan
+- `summary.json` — counts and noise overview
+- `report.md` — Markdown tuning report
+- `triage.md` — analyst triage checklist
 
-- Loads detection rules from YAML-like files
-- Runs rules against labeled sample logs
-- Counts true positives and false positives
-- Calculates false positive rate
-- Calculates precision and a noise grade per rule
-- Suggests tuning actions for noisy rules
-- Writes evaluation JSON, summary JSON, tuning plan JSON, Markdown report, and triage handoff
+## Project Structure
 
-## Demo Artifacts
+```
+RuleTuningLab/
+├── src/            Rule engine, evaluator, tuning suggestion builder
+├── rules/          YAML detection rule definitions
+├── data/           Labeled sample alert logs (noisy + clean)
+├── reports/        Example generated output
+├── docker/         Dockerfile + compose support
+├── docs/           Architecture, security notes, demo
+├── tests/          Unit tests
+├── main.py         CLI entrypoint
+├── pyproject.toml  Package metadata
+└── LICENSE
+```
 
-- [Architecture](docs/ARCHITECTURE.md)
-- [Security notes](docs/SECURITY_NOTES.md)
-- [Demo walkthrough](docs/DEMO.md)
-- [Release notes](docs/RELEASE_NOTES.md)
-- [Sample tuning report](reports/tuning-report.md)
-- [Sample triage report](reports/triage.md)
-- [Sample tuning plan](reports/tuning-plan.json)
+## Testing
+
+```bash
+python3 -m unittest discover -s tests -p 'test_*.py'
+```
 
 ## Docker Demo
 
@@ -72,10 +89,29 @@ The sample logs are safe synthetic labeled events.
 docker compose run --rm rule-tuning-demo
 ```
 
+## Safe Use
+
+This project is defensive and analysis-focused. Use only with logs and detection rules you own or have explicit written permission to evaluate. The included samples are synthetic and safe for public demo use.
+
+## Status
+
+Working CLI MVP with tests, sample data, and Docker support.
+
 ## Roadmap
 
-- Add before/after simulation using proposed rule changes.
-- Add suppression and allowlist condition examples.
-- Add severity downgrade impact analysis.
-- Add dashboard charts for noisy rules.
-- Prepare GitHub release `v0.1.0-mvp`.
+- Sigma rule format import / export
+- Live SIEM integration (Splunk, Elastic) for production tuning
+- A/B comparison of tuning iterations
+- Auto-generated regression test suite per rule
+- GitHub release `v0.1.0-mvp`
+
+## License
+
+Released under the [MIT License](LICENSE). You are free to use, modify, and distribute this software with attribution.
+
+## Author
+
+**Sudarshan Chaudhari** — [SudarshanTechLabs](https://github.com/SUDARSHANCHAUDHARI)
+Bangkok, Thailand
+
+For inquiries: open an issue on [GitHub](https://github.com/SUDARSHANCHAUDHARI/RuleTuningLab/issues).
