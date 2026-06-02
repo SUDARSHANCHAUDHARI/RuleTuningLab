@@ -24,6 +24,19 @@ This project is defensive and analysis-focused. Use only with logs, systems, rep
 - alert severity tuning
 - before/after report
 
+
+## Install
+
+```bash
+pip install .
+```
+
+This registers the `rule-tuning-lab` command. Or run directly:
+
+```bash
+python3 main.py --help
+```
+
 ## Quick Start
 
 ```bash
