@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "ruletuninglab"
+version = "1.0.0"
+description = "Detection tuning lab that measures false positives and suggests rule improvements from labeled logs"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+
+[project.scripts]
+rule-tuning-lab = "main:main"
